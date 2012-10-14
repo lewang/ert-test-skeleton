@@ -14,7 +14,7 @@
     path))
 
 (defvar AWESOMEPROJECT-test-dir (file-name-directory load-file-name))
-(defvar AWESOMEPROJECT-root-dir (concat AWESOMEPROJECT-test-dir ".."))
+(defvar AWESOMEPROJECT-root-dir (file-name-as-directory (expand-file-name ".." AWESOMEPROJECT-test-dir)))
 
 
 ;; Setup `load-path'
@@ -25,6 +25,8 @@
 
 ;; Use ERT from github when this Emacs does not have it
 (unless (locate-library "ert")
+  (let ((default-directory AWESOMEPROJECT-root-dir))
+    (shell-command "git clone git://github.com/ohler/ert.git lib/ert"))
   (add-to-list
    'load-path
    (AWESOMEPROJECT-test-join-path AWESOMEPROJECT-root-dir "lib" "ert" "lisp" "emacs-lisp"))
