@@ -1,18 +1,26 @@
 EMACS=emacs
 EMACS23=emacs23
+EMACS-OPTIONS=
 
-.PHONY: test test-nw test-emacs23 test-emacs23-nw travis-ci show-version
+.PHONY: test test-nw travis-ci show-version before-test
 
 show-version: show-version
 	echo "*** Emacs version ***"
 	echo "EMACS = `which ${EMACS}`"
 	${EMACS} --version
 
-test: show-version
+install-ert:
+	emacs --batch --eval "(require 'ert)" || git clone git://github.com/ohler/ert.git lib/ert && cd lib/ert && git checkout 00aef6e43
+
+
+before-test: show-version install-ert
+
+test: before-test
 	${EMACS} -Q -L . -l tests/run-test.el
 
-test-nw: show-version
+test-nw: before-test
 	${EMACS} -Q -nw -L . -l tests/run-test.el
 
-travis-ci: show-version
+travis-ci: before-test
+	echo ${EMACS-OPTIONS}
 	${EMACS} -batch -Q -l tests/run-test.el
