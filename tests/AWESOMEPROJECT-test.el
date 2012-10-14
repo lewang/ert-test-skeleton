@@ -27,4 +27,5 @@
     (insert "a b c")
     (execute-kbd-macro (read-kbd-macro "M-DEL"))
     (should (every #'identity (list 1 2 3)))
-    (should (string-equal (buffer-string) "a b "))))
+    (should (string-equal (buffer-string) "a b "))
+    (should (= 1 2))))
