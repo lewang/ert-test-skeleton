@@ -5,7 +5,7 @@ EMACS23=emacs23
 
 show-version: show-version
 	echo "*** Emacs version ***"
-	echo "EMACS = `which $EMACS`"
+	echo "EMACS = `which ${EMACS}`"
 	${EMACS} --version
 
 test: show-version
