@@ -1,4 +1,4 @@
-# Example skeleton for runnint ERT with Travis CI
+# Example skeleton for running ERT with Travis CI
 
 ![trav][trav-ci-status]
 
