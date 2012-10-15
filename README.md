@@ -1,5 +1,3 @@
 # Example skeleton for running ERT with Travis CI
 
-![trav][trav-ci-status]
-
-[trav-ci-status]: https://travis-ci.org/lewang/ert-test-skeleton.png "trav"
+[![Build Status](https://travis-ci.org/lewang/ert-test-skeleton.png)](http://travis-ci.org/lewang/ert-test-skeleton)
