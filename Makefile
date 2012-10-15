@@ -10,7 +10,7 @@ show-version: show-version
 	${EMACS} --version
 
 install-ert:
-	emacs --batch -L "${PWD}/lib/ert/lisp/emacs-lisp" --eval "(require 'ert)" || git clone git://github.com/ohler/ert.git lib/ert && cd lib/ert && git checkout 00aef6e43
+	emacs --batch -L "${PWD}/lib/ert/lisp/emacs-lisp" --eval "(require 'ert)" || ( git clone git://github.com/ohler/ert.git lib/ert && cd lib/ert && git checkout 00aef6e43 )
 
 
 before-test: show-version install-ert
