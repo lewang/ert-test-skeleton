@@ -8,7 +8,7 @@
 
 (defmacro AWESOMEPROJECT-test-with-test-buffer (&rest body)
   (declare (indent 0) (debug t))
-  `(let ((test-buffer-name "*AWESOME test*"))
+  `(let ((test-buffer-name "*AWESOMEPROJECT test*"))
      (save-excursion
        (when (get-buffer test-buffer-name)
          (kill-buffer test-buffer-name))
